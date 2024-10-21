@@ -1,0 +1,13 @@
+ 
+
+
+const Banner = () => {
+    return (
+        <div>
+            <h2 className="text-center text-5xl font-semibold">Home page banner</h2>
+          
+        </div>
+    );
+};
+
+export default Banner;
