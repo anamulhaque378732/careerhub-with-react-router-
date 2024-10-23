@@ -5,14 +5,24 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { MdOutlineForwardToInbox } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { saveJobApplication } from "../../Uitility/LocalStorage";
+
 
 const JobDetails = () => {
     const jobs = useLoaderData();
     const { id } = useParams();
-    const idInt = parseInt(id)
+    const idInt = parseInt(id);
+
     const job = jobs.find(job => job.id === idInt)
     const { job_description, job_responsibility, educational_requirements, experiences, job_title, salary, contact_information } = job;
+
     const { phone, email, address } = contact_information;
+    const handleApplyJob = () => {
+        saveJobApplication(idInt)
+        toast('You have applied successfully');
+    };
 
     return (
         <div className="">
@@ -63,7 +73,7 @@ const JobDetails = () => {
                             <p className="text-xl">Address :  <span className="text-base">{address}</span> </p>
                         </div>
                         <div className="mt-6 text-center ">
-                            <Link> <button className="text-xl font-semibold w-full bg-blue-700 p-4 rounded-md"> Apply Now</button></Link>
+                            <Link> <button onClick={handleApplyJob} className="text-xl font-semibold w-full  p-4 rounded-md  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ..."> Apply Now</button></Link>
                         </div>
                     </div>
 
@@ -71,7 +81,7 @@ const JobDetails = () => {
 
 
             </div>
-
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 const Header = () => {
 
     const links = <>
-        <li> <NavLink to='/'> Home</NavLink></li>
+        <li className="hover:bg-sky-500 hover:text-black rounded-md"> <NavLink to='/'> Home</NavLink></li>
 
-        <li><NavLink to='/applied'>Applied Job</NavLink></li>
-        <li><NavLink to='/statistic'>Statistic</NavLink></li>
-        <li><NavLink to='/blogs'>Blogs</NavLink></li>
+        <li className="hover:bg-sky-500  hover:text-black rounded-md"><NavLink to='/applied'>Applied Job</NavLink></li>
+        <li className="hover:bg-sky-500 hover:text-black rounded-md"><NavLink to='/statistic'>Statistic</NavLink></li>
+        <li className="hover:bg-sky-500 hover:text-black rounded-md"><NavLink to='/blogs'>Blogs</NavLink></li>
 
     </>
     return (
@@ -42,7 +42,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn bg-green-400">Apply now</a>
+                <Link className="btn p-1  bg-gradient-to-r from-cyan-500 to-blue-500 ...">Apply now</Link>
             </div>
         </div>
     );

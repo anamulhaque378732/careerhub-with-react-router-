@@ -7,7 +7,8 @@ import Jobs from "../Jobs/Jobs";
 const FeatureJobs = () => {
     const [jobs, setJobs] = useState([]);
     // this is the best way to load show all the data
-    const [dataLength, setDataLength] = useState(4)
+    const [dataLength, setDataLength] = useState(4);
+
     useEffect(() => {
         fetch('jobs.json')
             .then(res => res.json())
@@ -29,7 +30,7 @@ const FeatureJobs = () => {
             <div className={dataLength === jobs.length ? 'hidden' : ''}>
 
                 <div className="text-center">
-                    <button onClick={() => setDataLength(jobs.length)} className=" p-4 m-2 text-2xl font-normal rounded-md  bg-blue-800 mt-8">Show all Jobs</button>
+                    <button onClick={() => setDataLength(jobs.length)} className=" p-4 m-2 font-medium text-2xl   rounded-md  mt-8  text-black  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ...">Show all Jobs</button>
                 </div>
             </div>
         </div>
